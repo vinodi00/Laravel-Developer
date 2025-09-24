@@ -114,16 +114,4 @@ These views integrate with Breeze's default `layouts/app.blade.php` styling.
   - Run `php artisan migrate`
 - Sanctum is installed to satisfy the requirement; the Blade UI uses session auth. You can later add API endpoints protected by Sanctum if needed.
 
----
-
-## GitHub Submission
-
-Once it works locally:
-```bash
-git init
-git add .
-git commit -m "Laravel Task Manager (Breeze + Sanctum + Blade + Task CRUD)"
-git branch -M main
-git remote add origin <YOUR_REPO_URL>
-git push -u origin main
-```
+-
