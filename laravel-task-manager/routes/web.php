@@ -1,31 +1,23 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
-
-
-
-require __DIR__.'/auth.php';
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-Route::get('/', function () {
-    return view('welcome');
+    // If logged in -> go to the create form
+    // If guest -> send to login
+    return auth()->check()
+        ? redirect()->route('tasks.create')
+        : redirect()->route('login');
 });
 
 Route::middleware(['auth'])->group(function () {
+    // Optional: if anything hits /dashboard, send to the form too
+    Route::redirect('/dashboard', '/tasks/create')->name('dashboard');
+
+    // Tasks CRUD (create uses your _form partial)
     Route::resource('tasks', TaskController::class);
 });
+
 require __DIR__.'/auth.php';
+
