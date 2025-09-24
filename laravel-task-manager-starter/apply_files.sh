@@ -37,3 +37,6 @@ echo
 echo "✅ Files copied. Next steps:"
 echo "1) php artisan migrate"
 echo "2) php artisan serve"
+
+chmod +x ../laravel-task-manager-starter/laravel-task-manager-starter/apply_files.sh
+bash ../laravel-task-manager-starter/laravel-task-manager-starter/apply_files.sh
