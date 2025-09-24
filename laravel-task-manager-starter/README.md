@@ -6,17 +6,6 @@ This package contains **only the custom code** you need to drop into a fresh Lar
 - Blade UI (simple, clean, functional)
 - Authorization policy to ensure users can **only** access their own tasks
 
-> ✅ Uses **SQLite** by default for easiest setup. You can switch to MySQL/Postgres if you prefer.
-
----
-
-## Quick Start (Mac/Windows/Linux)
-
-### 0) Requirements
-- PHP 8.2+
-- Composer
-- Node.js 18+ and npm
-
 ### 1) Create a new Laravel project
 ```bash
 composer create-project laravel/laravel task-manager
@@ -102,16 +91,3 @@ Open http://127.0.0.1:8000
 - `resources/views/tasks/create.blade.php`
 - `resources/views/tasks/edit.blade.php`
 
-These views integrate with Breeze's default `layouts/app.blade.php` styling.
-
----
-
-## Notes
-
-- If you already have a `routes/web.php` from Breeze, this kit **replaces** it with a merged one that keeps Breeze routes and adds Task routes.
-- If you prefer MySQL:
-  - Update `.env` with your MySQL creds
-  - Run `php artisan migrate`
-- Sanctum is installed to satisfy the requirement; the Blade UI uses session auth. You can later add API endpoints protected by Sanctum if needed.
-
--
